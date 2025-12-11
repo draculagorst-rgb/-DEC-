@@ -25,8 +25,8 @@ Développé en **Python** avec la librairie [`python-telegram-bot`](https://pyth
 ## ⚙️ Installation locale (dev) TERMUX OU AUTRES 
 
 ```bash
-git clone https://github.com/Dan-jersey/kyotaka-telegram-bot.git
-cd kyotaka-telegram-bot
+git clone https://github.com/Dan-jersey/darkxmd-telegram-bot.git
+cd darkxmd-telegram-bot
 pip install -r requirements.txt
 ```
 
@@ -66,10 +66,10 @@ Tu peux aussi déployer **DarkXMD Bot** gratuitement sur :
 
 ## 🧿 Contact
 
-Tu veux me poser une question, faire une collab ou avoir ton propre bot dark ?  
+Tu veux me poser une question🥷
 👇 Clique ici pour me parler :
 
-[![Contact Mr Dark DEC](https://img.shields.io/badge/Contacter%20KYOTAKA-Whatsapp-black?style=for-the-badge&logo=whatsapp)](https://wa.me/qr/6FA4CG553U6YL1)
+[![Contact Mr Dark DEC](https://img.shields.io/badge/Contacter%20DarkXMD-Whatsapp-black?style=for-the-badge&logo=whatsapp)](https://wa.me/,50944562059)
 
 ---
 
