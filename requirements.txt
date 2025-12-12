@@ -1,8 +1,9 @@
-python-telegram-bot==20.6
-yt-dlp==2025.06.30
+python-telegram-bot==22.5
+yt-dlp==2025.10.22
 requests==2.32.4
 aiohttp==3.13.2
-openai==1.96.1
-Flask==3.1.1
+openai==1.102.0
+Flask==3.1.2
 pyrogram==2.0.106
 tgcrypto==1.2.5
+
