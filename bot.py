@@ -1,10 +1,10 @@
+python
 import logging
 import time
 import threading
 from flask import Flask
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-
 
 from commands.kick import kick
 from commands.unban import unban
@@ -33,16 +33,15 @@ from commands.tagall import tagall
 
 TOKEN = "8449034813:AAFr7oASZ5MO_cv_W8Lffm-9c21YRIDCkYY"
 
-logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
-
-# KYOTAKA 
-app_flask = Flask(__name__)
+logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level= logging.INFO)
+Flask app pour une page web (optionnel)
+app_flask = Flask(_name_)
 
 @app_flask.route("/")
 def home():
     return "Bot Telegram DarkAI est en ligne ✅"
 
-# KYOTAKA 
+Commande /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("🔮 Bienvenue dans DarkAI Bot.\nTape /help pour voir les commandes.")
 
@@ -50,6 +49,7 @@ def start_bot():
     app = ApplicationBuilder().token(TOKEN).build()
     app.bot_data["start_time"] = time.time()
 
+    # Ajout des commandes
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_command))
     app.add_handler(CommandHandler("kick", kick))
@@ -78,9 +78,8 @@ def start_bot():
 
     app.run_polling()
 
-if __name__ == "__main__":
-    # DarkXMD
+if _name_ == "_main_":
+    # Démarrer le bot dans un thread
     threading.Thread(target=start_bot).start()
-    # DARKXMD
+    # Démarrer le serveur Flask (optionnel)
     app_flask.run(host="0.0.0.0", port=10000)
-    
