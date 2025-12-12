@@ -1,11 +1,5 @@
 services:
   - type: web
-    name: bot-status-page
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python status_web.py
-
-  - type: worker
     name: telegram-bot
     runtime: python
     buildCommand: pip install -r requirements.txt
