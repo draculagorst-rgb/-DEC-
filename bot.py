@@ -1,9 +1,11 @@
 import logging
 import time
+import threading
+from flask import Flask
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-# ==== IMPORTATION DES COMMANDES ====
+
 from commands.kick import kick
 from commands.unban import unban
 from commands.help_cmd import help_command
@@ -29,28 +31,25 @@ from commands.nightmode import nightmode
 from commands.lock import lock
 from commands.tagall import tagall
 
+TOKEN = "8449034813:AAFr7oASZ5MO_cv_W8Lffm-9c21YRIDCkYY"
 
-TOKEN = "8449034813:AAFr7oASZ5MO_cv_W8Lffm-9c21YRIDCkYY"      # ⚠️  Mets ton token ici
+logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 
-# ==== CONFIG LOG ====
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    level=logging.INFO
-)
+# KYOTAKA 
+app_flask = Flask(__name__)
 
-# ==== COMMANDE /START ====
+@app_flask.route("/")
+def home():
+    return "Bot Telegram DarkAI est en ligne ✅"
+
+# KYOTAKA 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        "🔮 Bienvenue dans DarkAI Bot.\nTape /help pour voir les commandes."
-    )
+    await update.message.reply_text("🔮 Bienvenue dans DarkAI Bot.\nTape /help pour voir les commandes.")
 
-
-# ==== INITIALISATION DU BOT ====
-def main():
+def start_bot():
     app = ApplicationBuilder().token(TOKEN).build()
     app.bot_data["start_time"] = time.time()
 
-    # ==== HANDLERS ====
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_command))
     app.add_handler(CommandHandler("kick", kick))
@@ -77,11 +76,11 @@ def main():
     app.add_handler(CommandHandler("tagall", tagall))
     app.add_handler(CommandHandler(["ai", "kyo"], ai_kyo))
 
-    # ==== LANCEMENT DU BOT ====
-    print("🚀 DarkAI Bot est lancé en mode polling…")
     app.run_polling()
 
-
 if __name__ == "__main__":
-    main()
+    # DarkXMD
+    threading.Thread(target=start_bot).start()
+    # DARKXMD
+    app_flask.run(host="0.0.0.0", port=10000)
     
