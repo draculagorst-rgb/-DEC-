@@ -34,7 +34,7 @@ from commands.tagall import tagall
 TOKEN = "8449034813:AAFr7oASZ5MO_cv_W8Lffm-9c21YRIDCkYY"
 
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level= logging.INFO)
-Flask app pour une page web (optionnel)
+# Flask app pour une page web (optionnel)
 app_flask = Flask(_name_)
 
 @app_flask.route("/")
