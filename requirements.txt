@@ -1,8 +1,7 @@
-pip>=21.3
 python-telegram-bot==20.6
 yt-dlp==2025.06.30
 requests==2.32.4
-aiohttp==3.8.4
+aiohttp==3.13.2
 openai==1.96.1
 Flask==3.1.1
 pyrogram==2.0.106
